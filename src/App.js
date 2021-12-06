@@ -2,26 +2,32 @@ import React, {Component} from 'react'
 import Video from './Video'
 import Menu from './Menu'
 
-const VIDEOS = {
-    fast: 'https://content.codecademy.com/courses/React/react_video-fast.mp4',
-    slow: 'https://content.codecademy.com/courses/React/react_video-slow.mp4',
-    cute: 'https://content.codecademy.com/courses/React/react_video-cute.mp4',
-    eek: 'https://content.codecademy.com/courses/React/react_video-eek.mp4'
-}
+const 
+menu = ['fast', 'slow', 'cute', 'eek'],
+VIDEOS = {}
+
+menu.forEach(option => VIDEOS[option] = `https://content.codecademy.com/courses/React/react_video-${option}.mp4`)
+// slow: 'https://content.codecademy.com/courses/React/react_video-slow.mp4',
+// cute: 'https://content.codecademy.com/courses/React/react_video-cute.mp4',
+// eek: 'https://content.codecademy.com/courses/React/react_video-eek.mp4')
 
 class App extends Component {
     constructor(props) {
         super(props)
+        this.state = { src: null }
+        this.chooseVideo = this.chooseVideo.bind(this)
+    }
 
-        this.state = { src: VIDEOS.fast }
+    chooseVideo(newVid){
+        this.setState({src: VIDEOS[newVid]})
     }
 
     render() {
         return (
-            <div className='card bg-dark mx-auto my-3 py-3'>
-                <h1 className='text-center text-secondary fw-bolder'>Video Player byFT</h1>
-                <Menu />
-                <Video />
+            <div className='card col-sm-6 bg-dark mx-auto my-5 py-5 border border-bottom border-5 border-danger'>
+                <h1 className='text-center text-secondary fw-bolder'>Video Player by<code>FT</code></h1>
+                <Menu chooseVideo={this.chooseVideo}/>
+                <Video src={this.state.src}/>
             </div>
         )
     }
