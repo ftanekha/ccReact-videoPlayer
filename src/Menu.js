@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-
-// let menu = ['fast', 'slow', 'cute', 'eek']
 class Menu extends Component {
     constructor(props) {
         super(props)

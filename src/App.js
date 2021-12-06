@@ -7,10 +7,6 @@ menu = ['fast', 'slow', 'cute', 'eek'],
 VIDEOS = {}
 
 menu.forEach(option => VIDEOS[option] = `https://content.codecademy.com/courses/React/react_video-${option}.mp4`)
-// slow: 'https://content.codecademy.com/courses/React/react_video-slow.mp4',
-// cute: 'https://content.codecademy.com/courses/React/react_video-cute.mp4',
-// eek: 'https://content.codecademy.com/courses/React/react_video-eek.mp4')
-
 class App extends Component {
     constructor(props) {
         super(props)
@@ -32,5 +28,4 @@ class App extends Component {
         )
     }
 }
-
 export default App
